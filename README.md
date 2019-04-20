@@ -56,7 +56,7 @@ req/s           :      77.39       79.89       78.06        0.43    82.00%
 
 ```sh
 # http2-prior-knowledge m=1
-docker run -it http-client h2load -c200 -n100000 http://192.168.2.201:60002
+docker run -it http-client h2load -c200 -n100000 -m1 http://192.168.2.201:60002
 
 starting benchmark...
 spawning thread #0: 200 total client(s). 100000 total requests
