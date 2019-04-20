@@ -1,0 +1,20 @@
+version: '3'
+
+networks:
+  network_default:
+    driver: bridge
+
+services:
+  http-1.1:
+    build: ./server/http1.1/
+    networks:
+      - network_default
+    ports:
+      - '60001:80'
+
+  http-2:
+    build: ./server/http2/
+    networks:
+      - network_default
+    ports:
+      - '60002:80'
