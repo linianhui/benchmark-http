@@ -23,8 +23,8 @@ curl --http2-prior-knowledge http://127.0.0.1:60002
 ```sh
 docker build --tag http-client ./client/
 ```
-# 2 测试结果
 
+# 2 测试结果
 
 HTTP/1.1 : `docker run -it http-client h2load -c200 -n100000 --h1 http://192.168.2.201:60001`
 ```
@@ -39,7 +39,7 @@ time to 1st byte:     8.65ms     30.75ms     19.81ms      4.82ms    67.00%
 req/s           :      77.39       79.89       78.06        0.43    82.00%
 ```
 
-HTTP/2 : `docker run -it http-client h2load -c200 -n100000 -m100 http://192.168.2.201:6`
+HTTP/2 : `docker run -it http-client h2load -c200 -n100000 -m100 http://192.168.2.201:60002`
 ```
 finished in 3.55s, 28176.24 req/s, 19.86MB/s
 requests: 100000 total, 100000 started, 100000 done, 100000 succeeded, 0 failed, 0 errored, 0 timeout
