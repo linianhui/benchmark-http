@@ -19,11 +19,40 @@ curl --http2-prior-knowledge http://127.0.0.1:60002
 ```
 
 # 1.2 准备1个HTTP客户端
+
 ```sh
 docker build --tag http-client ./client/
 ```
+# 2 测试结果
 
-# 2 测试
+
+HTTP/1.1 : `docker run -it http-client h2load -c200 -n100000 --h1 http://192.168.2.201:60001`
+```
+finished in 6.47s, 15456.18 req/s, 12.42MB/s
+requests: 100000 total, 100000 started, 100000 done, 100000 succeeded, 0 failed, 0 errored, 0 timeout
+status codes: 100000 2xx, 0 3xx, 0 4xx, 0 5xx
+traffic: 80.35MB (84249000) total, 17.92MB (18795000) headers (space savings 0.00%), 58.36MB (61200000) data
+                     min         max         mean         sd        +/- sd
+time for request:      153us     73.38ms     12.78ms      4.51ms    72.82%
+time for connect:       29us      2.79ms       168us       477us    92.50%
+time to 1st byte:     8.65ms     30.75ms     19.81ms      4.82ms    67.00%
+req/s           :      77.39       79.89       78.06        0.43    82.00%
+```
+
+HTTP/2 : `docker run -it http-client h2load -c200 -n100000 -m100 http://192.168.2.201:6`
+```
+finished in 3.55s, 28176.24 req/s, 19.86MB/s
+requests: 100000 total, 100000 started, 100000 done, 100000 succeeded, 0 failed, 0 errored, 0 timeout
+status codes: 100000 2xx, 0 3xx, 0 4xx, 0 5xx
+traffic: 70.49MB (73909800) total, 10.40MB (10900000) headers (space savings 38.76%), 58.36MB (61200000) data
+                     min         max         mean         sd        +/- sd
+time for request:    40.13ms       1.32s    632.70ms    161.49ms    77.65%
+time for connect:     6.27ms     61.61ms     27.21ms     10.12ms    78.00%
+time to 1st byte:    62.71ms    989.11ms    518.88ms    274.03ms    58.00%
+req/s           :     140.88      172.80      155.69        9.15    57.00%
+```
+
+# 3 测试过程
 
 ```sh
 # http/1.1
