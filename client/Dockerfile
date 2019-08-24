@@ -1,6 +1,6 @@
 # https://hub.docker.com/_/alpine
 
-FROM alpine:3.9
+FROM alpine
 
 LABEL author="lnhcode@outlook.com"
 
