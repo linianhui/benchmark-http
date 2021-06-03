@@ -13,9 +13,9 @@ docker-compose up --detach --build
 
 验证是否成功启动
 ```sh
-curl --http1.1 http://127.0.0.1:60001
+curl --http1.1 -v http://192.168.2.201:60001
 
-curl --http2-prior-knowledge http://127.0.0.1:60002
+curl --http2-prior-knowledge -v http://192.168.2.201:60002
 ```
 
 # 1.2 准备1个HTTP客户端

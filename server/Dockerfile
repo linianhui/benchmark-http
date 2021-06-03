@@ -2,8 +2,12 @@
 
 FROM nginx:1.21
 
-ARG conf
+ARG HTTP_VERSION
 
-COPY ${conf} /etc/nginx/nginx.conf
+COPY nginx.conf /etc/nginx/nginx.conf
+
+RUN sed -i "s/http2/${HTTP_VERSION}/g" /etc/nginx/nginx.conf
+
+RUN cat /etc/nginx/nginx.conf
 
 EXPOSE 80

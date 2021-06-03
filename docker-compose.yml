@@ -9,7 +9,7 @@ services:
     build:
       context: ./server/
       args: 
-        conf: http1.1/nginx.conf
+        HTTP_VERSION: ''
     networks:
       - network_default
     ports:
@@ -19,7 +19,7 @@ services:
     build:
       context: ./server/
       args: 
-        conf: http2/nginx.conf
+        HTTP_VERSION: 'http2'
     networks:
       - network_default
     ports:
