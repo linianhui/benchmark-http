@@ -6,14 +6,20 @@ networks:
 
 services:
   http-1.1:
-    build: ./server/http1.1/
+    build:
+      context: ./server/
+      args: 
+        conf: http1.1/nginx.conf
     networks:
       - network_default
     ports:
       - '60001:80'
 
   http-2:
-    build: ./server/http2/
+    build:
+      context: ./server/
+      args: 
+        conf: http2/nginx.conf
     networks:
       - network_default
     ports:
