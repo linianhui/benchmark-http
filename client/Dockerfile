@@ -1,5 +1,5 @@
-# https://hub.docker.com/_/alpine
+# https://github.com/linianhui/docker/pkgs/container/alpine
 
-FROM alpine:3.13
+FROM ghcr.io/linianhui/alpine:3.14
 
 RUN apk add nghttp2 --no-cache

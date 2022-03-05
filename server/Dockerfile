@@ -1,6 +1,6 @@
-# https://hub.docker.com/_/nginx
+# https://github.com/linianhui/docker/pkgs/container/nginx
 
-FROM nginx:1.21
+FROM ghcr.io/linianhui/nginx:1.21
 
 ARG HTTP_VERSION
 

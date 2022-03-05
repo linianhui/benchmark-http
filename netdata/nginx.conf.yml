@@ -1,0 +1,6 @@
+jobs:
+  - name: http11
+    url: http://http11/stub_status
+
+  - name: http20
+    url: http://http20/stub_status

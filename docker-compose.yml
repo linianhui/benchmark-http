@@ -1,26 +1,29 @@
-version: '3'
-
-networks:
-  network_default:
-    driver: bridge
+version: '3.8'
 
 services:
-  http-1.1:
+  http11:
     build:
       context: ./server/
       args: 
         HTTP_VERSION: ''
-    networks:
-      - network_default
+    hostname: http11
+    container_name: http11
     ports:
       - '60001:80'
 
-  http-2:
+  http20:
     build:
       context: ./server/
       args: 
         HTTP_VERSION: 'http2'
-    networks:
-      - network_default
+    hostname: http20
+    container_name: http20
     ports:
       - '60002:80'
+
+  netdata:
+    build: ./netdata/
+    ports:
+      - 19999:19999
+    hostname: netdata
+    container_name: netdata

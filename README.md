@@ -1,5 +1,7 @@
 # 1 HTTP Benchmark 环境准备
 
+监控 <http://192.168.2.201:19999>
+
 # 1.1 准备2个HTTP服务器
 ```sh
 docker-compose up --detach --build
